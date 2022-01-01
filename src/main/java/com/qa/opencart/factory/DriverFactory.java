@@ -44,6 +44,7 @@ public class DriverFactory {
 	 * @param browser
 	 * @return this method will return driver
 	 */
+
 	public WebDriver initDriver(Properties prop) {
 		optionsManager = new OptionsManager(prop);
 		highlight = prop.getProperty("highlight");

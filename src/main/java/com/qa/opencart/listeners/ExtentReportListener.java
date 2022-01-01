@@ -29,7 +29,7 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 
 	private static ExtentReports init() {
 
-		Path path = Paths.get(OUTPUT_FOLDER);
+		Path path = Path.of(OUTPUT_FOLDER);
 		// if directory exists?
 		if (!Files.exists(path)) {
 			try {
