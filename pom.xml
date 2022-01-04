@@ -20,7 +20,7 @@
 		<extentreports-version>5.0.8</extentreports-version>
 		<aspectj.version>1.9.5</aspectj.version>
 	</properties>
-	
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
@@ -138,7 +138,8 @@
 						<artifactId>aspectjweaver</artifactId>
 						<version>${aspectj.version}</version>
 					</dependency>
-				</dependencies>
+			</dependencies>
+
 			</plugin>
 
 
@@ -164,7 +165,7 @@
 				</executions>
 
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>

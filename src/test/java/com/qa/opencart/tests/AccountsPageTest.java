@@ -76,6 +76,7 @@ public class AccountsPageTest extends BaseTest {
 	public void selectProductTest(String productName, String mainProductName) {
 		resultPage = accPage.doSearch(productName);
 		resultPage.selectProduct(mainProductName);
+		//System.out.println("hi");
 	}
 	
 	
