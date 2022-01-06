@@ -30,7 +30,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/naveenanimation20/July2021POMSeries.git'
-                    sh "mvn clean install"
+                    bat "mvn clean install"
                 }
             }
         }
