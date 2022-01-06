@@ -24,9 +24,9 @@
 	
 	<test name="Login page Test_chrome_89">
 	 	<parameter name="browser" value="chrome" />
-		<parameter name="browserversion" value="90" /> 
 
-		<classes>
+		<parameter name="browserversion" value="90" /> 
+       <classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
