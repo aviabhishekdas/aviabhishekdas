@@ -29,7 +29,7 @@ pipeline
         stage('Regression Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/naveenanimation20/July2021POMSeries.git'
+                    git 'https://github.com/aviabhishekdas/aviabhishekdas.git'
                     bat "mvn clean install"
                 }
             }
