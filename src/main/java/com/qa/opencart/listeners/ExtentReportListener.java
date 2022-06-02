@@ -19,7 +19,7 @@ import com.qa.opencart.factory.DriverFactory;
 
 public class ExtentReportListener extends DriverFactory implements ITestListener {
 
-	private static final String OUTPUT_FOLDER = "./build/";
+	private static final String OUTPUT_FOLDER = "./Extent_Report/";
 	private static final String FILE_NAME = "TestExecutionReport.html";
 
 	private static ExtentReports extent = init();
@@ -44,8 +44,8 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 		ExtentSparkReporter reporter = new ExtentSparkReporter(OUTPUT_FOLDER + FILE_NAME);
 		reporter.config().setReportName("Automation Test Results");
 		extentReports.attachReporter(reporter);
-		extentReports.setSystemInfo("System", "MAC");
-		extentReports.setSystemInfo("Author", "Naveen AutomationLabs");
+		extentReports.setSystemInfo("System", "Windows11");
+		extentReports.setSystemInfo("Author", "Abhishek Das");
 		extentReports.setSystemInfo("Build#", "1.1");
 
 
@@ -53,12 +53,12 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 	}
 
 	public synchronized void onStart(ITestContext context) {
-		System.out.println("Test Suite started!");
+		System.out.println("Test Suite started! ExtentReport output");
 		
 	}
 
 	public synchronized void onFinish(ITestContext context) {
-		System.out.println(("Test Suite is ending!"));
+		System.out.println(("Test Suite is ending!- ExtentReport output"));
 		extent.flush();
 		test.remove();
 	}
@@ -70,7 +70,7 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 		int mid = qualifiedName.substring(0, last).lastIndexOf(".");
 		String className = qualifiedName.substring(mid + 1, last);
 
-		System.out.println(methodName + " started!");
+		System.out.println(methodName + " started!- ExtentReport output");
 		ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName(),
 				result.getMethod().getDescription());
 
@@ -85,19 +85,19 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 	}
 
 	public synchronized void onTestSuccess(ITestResult result) {
-		System.out.println((result.getMethod().getMethodName() + " passed!"));
+		System.out.println((result.getMethod().getMethodName() + " passed!- ExtentReport output"));
 		test.get().pass("Test passed");
 		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 	}
 
 	public synchronized void onTestFailure(ITestResult result) {
-		System.out.println((result.getMethod().getMethodName() + " failed!"));
+		System.out.println((result.getMethod().getMethodName() + " failed!-ExtentReport output"));
 		test.get().fail(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(getScreenshot()).build());
 		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 	}
 
 	public synchronized void onTestSkipped(ITestResult result) {
-		System.out.println((result.getMethod().getMethodName() + " skipped!"));
+		System.out.println((result.getMethod().getMethodName() + " skipped!-ExtentReport output"));
 		test.get().skip(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(getScreenshot()).build());
 		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 	}

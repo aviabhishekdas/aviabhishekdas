@@ -21,7 +21,7 @@ public class BaseTest {
 	public Properties prop;
 	public DriverFactory df;
 	public LoginPage loginPage;
-	public AccountsPage accPage;
+	public  AccountsPage accPage;
 	public ResultsPage resultPage;
 	public ProductInfoPage productInfoPage;
 	public RegisterationPage registerationPage;
@@ -29,16 +29,20 @@ public class BaseTest {
 	public SoftAssert softAssert;
 
 	
-	@Parameters({"browser", "browserversion"})
+	@Parameters({"browser", "browserversion"})// in test level we are using paarmeter in testng xml file , so we have to give it here
 	@BeforeTest
-	public void setUp(String browser, String browserVersion) {
+	public void setUp(String browser , String browserVersion ) {
+	
 		df = new DriverFactory();
 		prop = df.initProp();
 		
-		if(browser!=null) {
-			prop.setProperty("browser", browser);
-			prop.setProperty("browserversion", browserVersion);
-		}
+		 //update the config file with the value coming from testng xml parameters
+		  if(browser!=null) 
+		  { 
+			  prop.setProperty("browser", browser);
+		      prop.setProperty("browserversion", browserVersion);
+		  }
+		 
 		
 		driver = df.initDriver(prop);
 		loginPage = new LoginPage(driver);

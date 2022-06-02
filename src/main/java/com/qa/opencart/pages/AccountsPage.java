@@ -1,6 +1,7 @@
 package com.qa.opencart.pages;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -19,10 +20,32 @@ public class AccountsPage {
 	private By searchIcon = By.cssSelector("div#search span");
 	private By logoutLink = By.linkText("Logout");
 	private By accSecHeaders = By.cssSelector("div#content h2");
+	
 
 	public AccountsPage(WebDriver driver) {
 		this.driver = driver;
 		elementUtil = new ElementUtil(driver);
+	}
+	
+	public void Searchlinks()
+	{
+		List<String> actualurls = new ArrayList<String>();
+		List<WebElement> taglist = driver.findElements(By.tagName("a"));
+		Iterator<WebElement> it = taglist.iterator();
+		while(it.hasNext())
+		{
+			String url = it.next().getAttribute("href");
+			if (!(url.isEmpty()) || !(url==null))
+			{
+				actualurls.add(url);
+			}
+				
+		}
+		for(String a :actualurls)
+		{
+			System.out.println(a);
+		}
+		
 	}
 
 	public String getAccPageTitle() {
@@ -53,5 +76,10 @@ public class AccountsPage {
 		return new ResultsPage(driver);
 	}
 	
+	public void logoutPage()
+	{
+		elementUtil.doClick(logoutLink);
+	}
+	}
 
-}
+

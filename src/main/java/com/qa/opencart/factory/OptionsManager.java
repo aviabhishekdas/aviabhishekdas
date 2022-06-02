@@ -19,6 +19,7 @@ public class OptionsManager {
 		co = new ChromeOptions();
 		if(Boolean.parseBoolean(prop.getProperty("headless"))) co.addArguments("--headless");
 		if(Boolean.parseBoolean(prop.getProperty("incognito"))) co.addArguments("--incognito");
+		//co.addArguments("--disable-dev-shm-usage"); // added this coz chromedriver was failing while running via zalenium
 		return co;
 	}
 	
@@ -26,6 +27,7 @@ public class OptionsManager {
 		fo = new FirefoxOptions();
 		if(Boolean.parseBoolean(prop.getProperty("headless"))) fo.addArguments("--headless");
 		if(Boolean.parseBoolean(prop.getProperty("incognito"))) fo.addArguments("--incognito");
+		//fo.addArguments("--disable-dev-shm-usage");// added this coz chromedriver was failing while running via zalenium
 		return fo;
 	}
 
