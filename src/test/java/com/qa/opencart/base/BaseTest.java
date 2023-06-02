@@ -43,7 +43,7 @@ public class BaseTest {
 		      prop.setProperty("browserversion", browserVersion);
 		  }
 		 
-		
+		prop.setProperty("password", System.getProperty("pass"));
 		driver = df.initDriver(prop);
 		loginPage = new LoginPage(driver);
 		softAssert = new SoftAssert();
